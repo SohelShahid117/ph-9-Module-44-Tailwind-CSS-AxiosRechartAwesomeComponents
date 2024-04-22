@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "../Link/Link";
+import { IoMdMenu } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
 //44-2 Responsive Navbar Using React And Tailwind
+//44-3 Create Nav Toggle And Navbar Animation
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const routes = [
     { id: 1, path: "/home", name: "Home" },
     { id: 2, path: "/about", name: "About" },
@@ -13,6 +17,16 @@ const Navbar = () => {
 
   return (
     <nav>
+      {/* <div onClick={() => setOpen(true)}> */}
+
+      <div className="text-2xl" onClick={() => setOpen(!open)}>
+        {/* {open === true ? "open" : "close"} */}
+
+        {open === true ? <IoCloseSharp /> : <IoMdMenu />}
+      </div>
+      {/* <IoMdMenu className="text-3xl" />
+      <IoCloseSharp className="text-2xl" /> */}
+
       <ul className="flex">
         {/* {routes.map((routeee) => (
           <li className="mr-10">
